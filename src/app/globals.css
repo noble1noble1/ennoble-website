@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Kill default cursor on desktop */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: initial; /* Lenis handles smooth scroll */
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
@@ -12,6 +35,7 @@ body {
   font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Noise texture overlay */
@@ -27,20 +51,20 @@ body::after {
   background-size: 256px 256px;
 }
 
-/* Selection styling */
+/* Selection styling — monochrome */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
+  background-color: rgba(245, 245, 245, 0.2);
   color: #F5F5F5;
 }
 
 ::-moz-selection {
-  background-color: rgba(59, 130, 246, 0.3);
+  background-color: rgba(245, 245, 245, 0.2);
   color: #F5F5F5;
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,25 +73,39 @@ body::after {
 
 ::-webkit-scrollbar-thumb {
   background: #333333;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555555;
 }
 
-/* Firefox scrollbar */
 * {
   scrollbar-width: thin;
   scrollbar-color: #333333 #0A0A0A;
 }
 
-/* Cursor styles for interactive elements */
-a, button, [role="button"] {
-  cursor: pointer;
+/* Word reveal clip */
+.word-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
 }
 
-/* Smooth transitions for interactive elements */
-a, button {
-  transition: all 0.2s ease;
+.word-clip .word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Horizontal scroll section */
+.horizontal-scroll-text {
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* GPU acceleration helper */
+.gpu {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
