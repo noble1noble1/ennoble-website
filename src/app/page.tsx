@@ -353,14 +353,14 @@ export default function Home() {
             Your competitors are already using AI.
           </h2>
           <p className="problem-sub font-satoshi font-bold text-[clamp(1.25rem,2.5vw,2.25rem)] text-white/80 mb-10">
-            They\u2019re just not using it well.
+            They’re just not using it well.
           </p>
           <div className="problem-body font-inter text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl space-y-6">
             <p>
               They buy a ChatGPT subscription. Someone watches a YouTube video. A consultant flies in, does a 3-day kickoff with impressive demos, and leaves. Nobody knows what to actually do on Monday morning.
             </p>
             <p>
-              The tools aren\u2019t the problem. The approach is. You don\u2019t need more tools. You need someone who understands your business, finds where AI actually moves the needle, and builds the systems that do it.
+              The tools aren’t the problem. The approach is. You don’t need more tools. You need someone who understands your business, finds where AI actually moves the needle, and builds the systems that do it.
             </p>
           </div>
         </div>
@@ -377,12 +377,12 @@ export default function Home() {
               {
                 num: '01',
                 title: 'AI Operations Audit',
-                desc: "Find what\u2019s broken, wasted, or invisible. We check your website, ad spend, sales process, tools, and workflows. We find the gaps you didn\u2019t know existed.",
+                desc: "Find what’s broken, wasted, or invisible. We check your website, ad spend, sales process, tools, and workflows. We find the gaps you didn’t know existed.",
               },
               {
                 num: '02',
                 title: 'Custom AI Systems',
-                desc: "Websites, automations, dashboards, agents. We build what your business needs but doesn\u2019t have.",
+                desc: "Websites, automations, dashboards, agents. We build what your business needs but doesn’t have.",
               },
               {
                 num: '03',
@@ -485,7 +485,7 @@ export default function Home() {
             </div>
             <div className="about-copy font-inter text-lg md:text-xl text-text-secondary leading-relaxed space-y-6">
               <p>
-                I\u2019ve worked in ad sales at 300 Entertainment, helped launch products at io.net, and managed a $1M+ art operation for Yung Jake.
+                I’ve worked in ad sales at 300 Entertainment, helped launch products at io.net, and managed a $1M+ art operation for Yung Jake.
               </p>
               <p>
                 Now I help businesses figure out what AI actually does for them. Not with demos or decks. With audits, builds, training, and ongoing support. One person, moving fast, delivering results.
