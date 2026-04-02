@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const satoshi = localFont({
@@ -26,6 +26,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "Ennoble — AI Operations for Your Business",
   description:
@@ -46,9 +53,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}
     >
-      <body className="bg-bg-primary text-text-primary font-inter antialiased">
+      <body className="bg-[#0A0A0A] text-[#FAFAFA] font-inter antialiased">
         {children}
       </body>
     </html>
