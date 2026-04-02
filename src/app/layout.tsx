@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { StructuredData } from "../components/StructuredData";
 import "./globals.css";
 
 const satoshi = localFont({
@@ -33,15 +35,79 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://ennoble.one";
+
+export const viewport: Viewport = {
+  themeColor: "#0A0A0A",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Ennoble — AI Operations for Your Business",
+  metadataBase: new URL(siteUrl),
+  title: "Ennoble — AI Operations Consulting for Your Business",
   description:
-    "We find what's broken. Then we build what's next. AI operations consulting for businesses that make real things.",
+    "We find what's broken. Then we build what's next. AI operations consulting — audit, build, train, and optimize — for businesses that make real things.",
+  keywords: [
+    "AI consulting",
+    "AI operations",
+    "business automation",
+    "AI audit",
+    "AI systems",
+    "fractional AI",
+    "AI training",
+    "small business AI",
+    "AI integration",
+  ],
+  authors: [{ name: "Noble", url: siteUrl }],
+  creator: "Ennoble",
+  publisher: "Ennoble",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Ennoble — AI Operations for Your Business",
-    description:
-      "AI operations consulting for businesses that make real things.",
     type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Ennoble",
+    title: "Ennoble — AI Operations Consulting",
+    description:
+      "Most AI consultants give you a deck. We give you systems. Audit. Build. Train. Stay.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ennoble — AI Operations Consulting",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ennoble — AI Operations Consulting",
+    description:
+      "Most AI consultants give you a deck. We give you systems. Audit. Build. Train. Stay.",
+    images: ["/og-image.png"],
+    creator: "@znob",
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -56,7 +122,9 @@ export default function RootLayout({
       className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}
     >
       <body className="bg-[#0A0A0A] text-[#FAFAFA] font-inter antialiased">
+        <StructuredData />
         {children}
+        <Analytics />
       </body>
     </html>
   );
